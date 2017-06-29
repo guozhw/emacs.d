@@ -12,6 +12,8 @@
 (when (version<= emacs-version "24.4")
     (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
