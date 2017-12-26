@@ -39,6 +39,22 @@
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-org)      ;;
 
+
+;; use xclip to copy/paste in emacs-nox
+(unless window-system
+  (when (getenv "DISPLAY")
+	(defun xclip-cut-function (text &optional push)
+	  (with-temp-buffer
+		(insert text)
+		(call-process-region (point-min) (point-max) "xclip" nil 0 nil "-i" "-selection" "clipboard")))
+	(defun xclip-paste-function()
+	  (let ((xclip-output (shell-command-to-string "xclip -o -selection clipboard")))
+		(unless (string= (car kill-ring) xclip-output)
+		  xclip-output )))
+	(setq interprogram-cut-function 'xclip-cut-function)
+	(setq interprogram-paste-function 'xclip-paste-function)
+	))
+
 (set-default-font "-PfEd-Inconsolata-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1")
 
 (provide 'init)
@@ -47,7 +63,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (sqlplus org-plus-contrib org ## fullframe))))
+ '(package-selected-packages
+   (quote
+    (ggtags sqlite ssh org-ehtml htmlize markdown-mode sqlplus org-plus-contrib org ## fullframe))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
