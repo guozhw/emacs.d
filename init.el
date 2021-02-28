@@ -3,7 +3,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;;(package-initialize)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (let ((minver "24.1"))
@@ -16,8 +16,8 @@
 (load-theme 'zenburn t)
 
 ;; Put backup files neatly away
-(let ((backup-dir "/mnt/disk/var/emacs/backup/")
-      (auto-saves-dir "/mnt/disk/var/emacs//auto-saves/"))
+(let ((backup-dir "/mnt/hdd/var/emacs/backup/")
+      (auto-saves-dir "/mnt/hdd/var/emacs/auto-saves/"))
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
       (make-directory dir t)))
@@ -36,6 +36,7 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
+(require 'init-socks) ;; socks proxy
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-org)      ;;
 
@@ -55,7 +56,7 @@
 	(setq interprogram-paste-function 'xclip-paste-function)
 	))
 
-(set-default-font "-PfEd-Inconsolata-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1")
+;;(set-default-font "-PfEd-Inconsolata-normal-normal-normal-*-19-*-*-*-m-0-iso10646-1")
 
 (provide 'init)
 (custom-set-variables
@@ -64,8 +65,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (ggtags sqlite ssh org-ehtml htmlize markdown-mode sqlplus org-plus-contrib org ## fullframe))))
+   '(org gnu-elpa-keyring-update fullframe seq ggtags sqlite ssh org-ehtml htmlize markdown-mode sqlplus org-plus-contrib ##)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
