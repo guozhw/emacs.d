@@ -16,4 +16,6 @@ running `M-x package-refresh-contents` before doing so.
 ## Reference
 [purcell](https://github.com/purcell/emacs.d)
 [caisah](https://github.com/caisah/emacs.dz)
+[Centaur Emacs](https://github.com/seagle0128/.emacs.d)
 [Org Mode - Organize Your Life In Plain Text!](http://doc.norang.ca/org-mode.html)
+[EAF](https://github.com/manateelazycat/emacs-application-framework)
