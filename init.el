@@ -65,7 +65,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org gnu-elpa-keyring-update fullframe seq ggtags sqlite ssh org-ehtml htmlize markdown-mode sqlplus org-plus-contrib ##)))
+   '(org gnu-elpa-keyring-update fullframe seq org-make-toc ggtags sqlite ssh org-ehtml htmlize markdown-mode sqlplus org-plus-contrib ##)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
