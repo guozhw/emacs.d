@@ -16,8 +16,8 @@
 (load-theme 'zenburn t)
 
 ;; Put backup files neatly away
-(let ((backup-dir "/mnt/hdd/var/emacs/backup/")
-      (auto-saves-dir "/mnt/hdd/var/emacs/auto-saves/"))
+(let ((backup-dir "~/.emacs.d/tmp/backup/")
+      (auto-saves-dir "~/.emacs.d/tmp/auto-saves/"))
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
       (make-directory dir t)))
